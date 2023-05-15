@@ -15,6 +15,66 @@
                 {
                     "name": "Structure d'un projet Typescript",
                     "path": "StructureDeProjet.md"
+                },
+                {
+                    "name": "Les types primitifs en Typescript",
+                    "path": "TypesPrimitifs.md"
+                },
+                {
+                    "name": "Les fonctions",
+                    "path": "LesFonctions.md"
+                },
+                {
+                    "name": "Le type objet",
+                    "path": "LeTypeObjet.md"
+                },
+                {
+                    "name": "Importer des modeles de données",
+                    "path": "ImportDeModele.md"
+                },
+                {
+                    "name": "Les Tableaux",
+                    "path": "LesTableaux.md"
+                },
+                {
+                    "name": "TP: Le lecteur de badge",
+                    "path": "TP_LeLecteurDeBadge.md"
+                },
+                {
+                    "name": "Créer des modèles de données",
+                    "path": "CreerDesModelesDeDonnees.md"
+                },
+                {
+                    "name": "Type unkown et Type any",
+                    "path": "TypeUnknownEtAny.md",
+                    "isSecondaryNotion": true
+                },
+                {
+                    "name": "Les Enums",
+                    "path": "LesEnums.md",
+                    "isSecondaryNotion": true
+                },
+                {
+                    "name": "La Portée des Variables",
+                    "path": "PorteeVariables.md"
+                },
+                {
+                    "name": "L'héritage de classe",
+                    "path": "HeritageDeClasse.md"
+                },
+                {
+                    "name": "Générique",
+                    "path": "Generique.md"
+                }
+            ]
+        },
+        {
+            "name": "Formation Angular débutant",
+            "markdownFolder": "formation_angular_debutant",
+            "parts": [
+                {
+                    "name": "Introduction",
+                    "path": "Introduction.md"
                 }
             ]
         }
