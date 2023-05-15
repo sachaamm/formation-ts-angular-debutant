@@ -1,6 +1,7 @@
 <ng-container *ngIf="ready">
 
-    <h1>{{ tutorial.name }} - {{ partIndex + 1 }} / {{ tutorial.parts.length }}
+    <h1>{{ tutorial.name }} - {{ partIndex + 1 }} / {{ tutorial.parts.length }} -
+        {{ 'Durée : ' + (expectedDuration / 60).toFixed(0) + ' minutes' }}
 
     </h1>
     <h2> {{ tutorial.parts[partIndex].name }}

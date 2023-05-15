@@ -7,9 +7,16 @@
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <th mat-header-cell *matHeaderCellDef> Nom </th>
         <td mat-cell *matCellDef="let element">
             <a [routerLink]="element.markdownFolder+'/0'"> {{element.name}} </a>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="expectedDuration">
+        <th mat-header-cell *matHeaderCellDef> Durée </th>
+        <td mat-cell *matCellDef="let element">
+            ~{{element.expectedDuration.toFixed(0)}} heures.
         </td>
     </ng-container>
 

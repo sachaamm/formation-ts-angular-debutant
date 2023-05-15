@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TutorialPartContent } from 'src/app/model/tutorial-part-content.model';
 import { TutorialPart } from 'src/app/model/tutorial-part.model';
 import { Tutorial } from 'src/app/model/tutorial.model';
 import { FetcherService } from 'src/app/service/fetcher.service';
+import { ExpectedDurationForTutorialPart } from 'src/app/utils/tutorial.utils';
 
 @Component({
   selector: 'app-tutorial-part',
@@ -16,6 +18,8 @@ export class TutorialPartComponent implements OnInit {
   readonly markdownFolder: string = 'assets/markdown/';
 
   ready: boolean = false;
+
+  expectedDuration: number;
 
   tutorial: Tutorial;
   partIndex: number;
@@ -36,7 +40,11 @@ export class TutorialPartComponent implements OnInit {
       this.fetcher.fetchTutorial(id).subscribe((tutorial: Tutorial) => {
         this.tutorial = tutorial;
         this.currentPartMarkdownPath = this.markdownFolder + tutorial?.markdownFolder + "/" + tutorial.parts[this.partIndex].path;
-        this.ready = true;
+
+        this.fetcher.getTutorialPartContent(tutorial, tutorial.parts[this.partIndex]).subscribe((content: TutorialPartContent) => {
+          this.expectedDuration = ExpectedDurationForTutorialPart(content);
+          this.ready = true;
+        });
       });
 
     });
