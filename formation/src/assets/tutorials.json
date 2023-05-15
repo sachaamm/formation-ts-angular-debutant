@@ -75,6 +75,87 @@
                 {
                     "name": "Introduction",
                     "path": "Introduction.md"
+                },
+                {
+                    "name": "Installation",
+                    "path": "Installation.md"
+                },
+                {
+                    "name": "Créer un projet",
+                    "path": "CreerUnProjet.md"
+                },
+                {
+                    "name": "Installer les outils",
+                    "path": "InstallerLesOutils.md"
+                },
+                {
+                    "name": "Le point d'entrée de l'application : AppComponent",
+                    "path": "AppComponent.md"
+                },
+                {
+                    "name": "Modifier le template",
+                    "path": "ModifierTemplate.md"
+                },
+                {
+                    "name": "Créer mon premier composant",
+                    "path": "CreerMonPremierComposant.md"
+                },
+                {
+                    "name": "Créer ma première interaction template -> composant",
+                    "path": "CreerMaPremiereInteraction.md"
+                },
+                {
+                    "name": "Intégrer Le Composant via le Routeur",
+                    "path": "IntegrerLeComposantViaRouting.md"
+                },
+                {
+                    "name": "La directive *ngIf",
+                    "path": "LaDirectiveNgIf.md"
+                },
+                {
+                    "name": "La directive *ngFor",
+                    "path": "LaDirectiveNgFor.md"
+                },
+                {
+                    "name": "Input",
+                    "path": "Input.md"
+                },
+                {
+                    "name": "Output",
+                    "path": "Output.md"
+                },
+                {
+                    "name": "Cycle de vie des composants",
+                    "path": "CycleDeVieDesComposants.md"
+                },
+                {
+                    "name": "Les pipes",
+                    "path": "LesPipes.md"
+                },
+                {
+                    "name": "Les services",
+                    "path": "LesServices.md"
+                },
+                {
+                    "name": "Les Modules",
+                    "path": "LesModules.md"
+                },
+                {
+                    "name": "Les Formulaires",
+                    "path": "LesFormulaires.md"
+                },
+                {
+                    "name": "Le Routeur",
+                    "path": "LeRouteur.md"
+                },
+                {
+                    "name": "Outils à connaître",
+                    "path": "OutilsAConnaitre.md",
+                    "isSecondaryNotion": true
+                },
+                {
+                    "name": "Builder son application",
+                    "path": "BuilderSonApplication.md"
                 }
             ]
         }
