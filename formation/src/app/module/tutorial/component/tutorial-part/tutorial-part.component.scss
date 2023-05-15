@@ -1,0 +1,14 @@
+.tuto-part-container {
+    display: flex;
+    align-items: center;
+    /* Vertically aligns items */
+    justify-content: left;
+    /* Horizontally aligns items */
+    height: 50px;
+    /* Set the height of the container (adjust as needed) */
+}
+
+.tuto-part-previous-or-next-div {
+
+    width: 280px;
+}

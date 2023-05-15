@@ -1,0 +1,22 @@
+{
+    "tutorials": [
+        {
+            "name": "Formation Typescript débutant",
+            "markdownFolder": "formation_ts_debutant",
+            "parts": [
+                {
+                    "name": "Introduction",
+                    "path": "Introduction.md"
+                },
+                {
+                    "name": "Hello World avec Typescript",
+                    "path": "HelloWorld.md"
+                },
+                {
+                    "name": "Structure d'un projet Typescript",
+                    "path": "StructureDeProjet.md"
+                }
+            ]
+        }
+    ]
+}
