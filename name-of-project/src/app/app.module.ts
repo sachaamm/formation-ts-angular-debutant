@@ -16,17 +16,17 @@ import { TutorialsComponent } from './module/tutorial/component/tutorials/tutori
 
 import { MatTableModule } from '@angular/material/table';
 import { TutorialPartComponent } from './module/tutorial/component/tutorial-part/tutorial-part.component';
-import { MyDashboardComponent } from './component/my-dashboard/my-dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MyFormComponent } from './component/my-form/my-form.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LearningPathComponent } from './module/learning-path/component/learning-path/learning-path.component';
+import { LearningPathsComponent } from './module/learning-path/component/learning-paths/learning-paths.component';
 
 @NgModule({
   declarations: [
@@ -35,8 +35,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MyNavComponent,
     TutorialsComponent,
     TutorialPartComponent,
-    MyDashboardComponent,
-    MyFormComponent
+    LearningPathsComponent,
+    LearningPathComponent
   ],
   imports: [
     BrowserModule,

@@ -159,5 +159,14 @@
                 }
             ]
         }
+    ],
+    "learningPaths": [
+        {
+            "name": "Chemin d'apprentissage Angular Débutant",
+            "tutorials": [
+                "formation_ts_debutant",
+                "formation_angular_debutant"
+            ]
+        }
     ]
 }

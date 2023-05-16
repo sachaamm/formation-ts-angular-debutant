@@ -12,9 +12,9 @@ import { MyRouterLink } from 'src/app/model/my-router-link.model';
 export class MyNavComponent {
 
   routerLinks: MyRouterLink[] = [
-    { path: '/home', label: 'Home' },
-    { path: '/tutorials', label: 'Tutorials' },
-    { path: '/my-dashboard', label: 'MyDashboard' }
+    { path: '/home', label: 'Accueil' },
+    { path: '/tutorials', label: 'Tutoriels' },
+    { path: '/learning-paths', label: 'Chemins d\'apprentissage' }
   ];
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)

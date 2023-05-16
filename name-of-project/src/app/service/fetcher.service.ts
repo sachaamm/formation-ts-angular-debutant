@@ -37,8 +37,4 @@ export class FetcherService {
     );
   }
 
-  getTutorialPartContentForPart(part: TutorialPart) {
-
-  }
-
 }
