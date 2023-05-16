@@ -27,7 +27,7 @@ Pour exécuter votre site en production à l'aide de `http-server` sur le port 4
 2. Générez les fichiers de production : Avant d'exécuter votre site en production, assurez-vous d'avoir généré les fichiers de production de votre application Angular en utilisant la commande suivante :
 
    ```
-   ng build --prod
+   ng build --configuration production
    ```
 
    Cette commande génère les fichiers optimisés prêts pour la production dans le répertoire `dist/` de votre projet.

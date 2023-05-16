@@ -20,6 +20,7 @@ export class FetcherService {
   fetchTutorial(id: string): Observable<Tutorial> {
     return this.fetchTutorials().pipe(
       map(tutorials => {
+        console.log('tutorials ', tutorials);
         return tutorials.tutorials.find(tutorial => tutorial.markdownFolder === id)
       }));
   }

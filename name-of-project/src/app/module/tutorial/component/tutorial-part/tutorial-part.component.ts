@@ -32,18 +32,29 @@ export class TutorialPartComponent implements OnInit {
 
   getParamValues(): void {
     this.route.params.subscribe(params => {
-      console.log(params);
+      console.log('params ', params);
 
       const id: string = params['id'];
       this.partIndex = parseInt(params['part']);
 
+      this.fetcher.fetchTutorials().subscribe((tutorialStore) => {
+        console.log('fetch tutorials ', tutorialStore);
+      });
+
       this.fetcher.fetchTutorial(id).subscribe((tutorial: Tutorial) => {
+
+        console.log('fetch tutorial ', tutorial);
+
         this.tutorial = tutorial;
         this.currentPartMarkdownPath = this.markdownFolder + tutorial?.markdownFolder + "/" + tutorial.parts[this.partIndex].path;
 
         this.fetcher.getTutorialPartContent(tutorial, tutorial.parts[this.partIndex]).subscribe((content: TutorialPartContent) => {
+
+          console.log('fetch tutorial part content ', content);
+
           this.expectedDuration = ExpectedDurationForTutorialPart(content);
           this.ready = true;
+          console.log(this.currentPartMarkdownPath);
         });
       });
 
