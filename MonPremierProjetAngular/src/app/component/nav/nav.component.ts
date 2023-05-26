@@ -13,6 +13,9 @@ export class NavComponent {
 
   routes: RouteAffichee[] = [
     {
+      path: 'premier', label: '1er'
+    },
+    {
       path: 'mon-premier/quatrieme', label: '4eme'
     },
     {

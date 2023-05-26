@@ -1,15 +1,6 @@
 import { AuthenticatorService } from "../service/authenticator.service";
-import * as fs from "fs";
-
-var { expressjwt: jwt } = require("express-jwt");
-
-var publicKey = fs.readFileSync("./keys/publickey.pub");
 
 const URL_APP_ANGULAR = "http://localhost:4200";
-
-// const checkIfAuthenticated = expressJwt({
-//     secret: RSA_PUBLIC_KEY
-// });
 
 module.exports = function (app) {
 
@@ -27,21 +18,18 @@ module.exports = function (app) {
 
     app.get(
         "/test",
-        jwt({ secret: publicKey, algorithms: ["RS256"] }),
-        function (req, res, err) {
-            console.log('err ', err);
+        function (req, res) {
+            console.log('req ', req.auth);
             if (!req.auth) {
-                return res.sendStatus(401);
+                return res.status(401).send({
+                    message: 'Interdit'
+                });
             }
             res.status(200).send({
                 message: 'salut'
             });
-        },
-        (err) => {
-            console.log(err)
-            console.log('ERR')
-
         }
     );
+
 
 }
