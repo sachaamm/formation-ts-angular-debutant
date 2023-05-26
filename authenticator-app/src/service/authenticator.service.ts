@@ -5,9 +5,9 @@ const jwt = require('jsonwebtoken');
 import * as fs from "fs";
 import { LoginResponseDto } from "../dto/login-response.dto";
 
-export class AuthenticatorService {
+export const RSA_PRIVATE_KEY = fs.readFileSync('./keys/key.pem');
 
-    RSA_PRIVATE_KEY = fs.readFileSync('./keys/key.pem');
+export class AuthenticatorService {
 
     users: User[] = [
         { id: 1, email: 'myMail1@mail.com', password: 'myPassword1', role: Role.DefaultRole },
@@ -30,9 +30,11 @@ export class AuthenticatorService {
             const loginResponse: LoginResponseDto = {
                 accepted: false,
                 token: '',
-                expirationDate: new Date(),
+                expiresIn: 0,
             }
 
+            // send status 401 Unauthorized
+            // 
             res.status(401).send(loginResponse);
 
         }
@@ -41,28 +43,23 @@ export class AuthenticatorService {
     onAuthenticationSuccess(res: Response, email: string) {
         const userId = this.findUserIdForEmail(email);
 
-        const jwtBearerToken = jwt.sign({}, this.RSA_PRIVATE_KEY, {
+        const jwtBearerToken = jwt.sign({}, RSA_PRIVATE_KEY, {
             algorithm: 'RS256',
             expiresIn: 120,
             subject: userId
         });
 
-        console.log('Valid mail and password ');
-        console.log(jwtBearerToken)
-
         const loginResponse: LoginResponseDto = {
             accepted: true,
             token: jwtBearerToken,
-            expirationDate: new Date(),
+            expiresIn: 120,
         }
 
         res.send(loginResponse);
     }
 
-
-
     findUserIdForEmail(email: string): string {
         // throw new Error("Function not implemented.");
-        return "hello";
+        return this.users.find(u => u.email == email)?.email;
     }
 }

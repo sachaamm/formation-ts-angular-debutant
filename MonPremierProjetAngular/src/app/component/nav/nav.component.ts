@@ -20,6 +20,9 @@ export class NavComponent {
     },
     {
       path: 'mon-premier/sixieme', label: '6eme'
+    },
+    {
+      path: 'test-webservice', label: 'Test Webservice'
     }
   ];
 

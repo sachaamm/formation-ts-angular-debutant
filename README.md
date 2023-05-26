@@ -2,4 +2,8 @@
 
 Formation Typescript et Angular Débutant planifiée sur 4 jours
 
-# Modif
+# Authenticator 
+
+``` bash
+openssl rsa -in mykey.pem -pubout > mykey.pub
+```

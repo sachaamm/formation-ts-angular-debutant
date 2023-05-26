@@ -3,10 +3,16 @@ import { Injectable } from '@angular/core';
 import { catchError, of } from 'rxjs';
 import { LoginResponseDto } from '../dto/login-response.dto';
 
+import * as moment from "moment";
+import { URL_API } from '../app.constants';
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
+
+  token: string
 
   constructor(private httpClient: HttpClient) { }
 
@@ -14,22 +20,48 @@ export class AuthenticationService {
 
     const login = {
       email: 'myMail1@mail.com',
-      password: 'myPassgword1'
+      password: 'myPassword1'
     };
 
-    const url = 'http://localhost:4205/login';
-
-    this.httpClient.post<LoginResponseDto>(url, login)
+    this.httpClient.post<LoginResponseDto>(URL_API + '/login', login)
       .pipe(
         catchError(error => {
-          console.log('error ', error);
           return of(
             { accepted: false }
           );
         })
       ).subscribe((res: LoginResponseDto) => {
-        console.log('auth res ', res);
+        if (res.accepted) {
+          console.log(res);
+          this.token = res.token;
+          this.setSession(res)
+        }
       });
+  }
 
+  // J'enregistre mon token dans la session
+  private setSession(authResult: LoginResponseDto): void {
+    const expiresAt = moment().add(authResult.expiresIn, 'second');
+    localStorage.setItem('id_token', authResult.token);
+    localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
+  }
+
+  logout() {
+    localStorage.removeItem("id_token");
+    localStorage.removeItem("expires_at");
+  }
+
+  public isLoggedIn() {
+    return moment().isBefore(this.getExpiration());
+  }
+
+  isLoggedOut() {
+    return !this.isLoggedIn();
+  }
+
+  getExpiration() {
+    const expiration = localStorage.getItem("expires_at");
+    const expiresAt = JSON.parse(expiration);
+    return moment(expiresAt);
   }
 }
