@@ -538,3 +538,4 @@ FodyWeavers.xsd
 *.tar
 
 authenticator-app/keys/private.key
+authenticator-app/keys/key.pem
