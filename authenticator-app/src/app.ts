@@ -11,7 +11,6 @@ var publicKey = fs.readFileSync("./keys/publickey.pub");
 // Constantes de l'application
 const APPLICATION_PORT = 4205;
 
-
 app.use(bodyParser.json());
 app.use(cors({
     origin: '*',
@@ -24,7 +23,12 @@ app.use("/test", jwt(
         algorithms: ["RS256"],
     }));
 
-app.use((err, req, res, next) => { if (err.name === 'UnauthorizedError') { res.status(401).json({ "error": err.name + ": " + err.message }) } })
+// Getion des erreurs
+app.use((err, req, res, next) => {
+    if (err.name === 'UnauthorizedError') {
+        res.status(401).json({ "error": err.name + ": " + err.message })
+    }
+})
 require('./controllers/authentication.controller')(app);
 
 app.listen(APPLICATION_PORT, () => {

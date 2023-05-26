@@ -16,7 +16,7 @@ export class MonPremierComposantComponent {
 
   participant = ""
 
-  participantsAyantParticipe: number[] = [5, 4, 2, 7, 1];
+  participantsAyantParticipe: number[] = [5, 4, 2, 7, 1, 6];
 
   monBooleen: boolean = true
 

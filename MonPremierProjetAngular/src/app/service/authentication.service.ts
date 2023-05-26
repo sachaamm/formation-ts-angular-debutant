@@ -51,8 +51,13 @@ export class AuthenticationService {
     localStorage.removeItem("expires_at");
   }
 
-  public isLoggedIn() {
+  tokenValid(): boolean {
     return moment().isBefore(this.getExpiration());
+  }
+
+  public isLoggedIn(): boolean {
+    const token = localStorage.getItem('id_token')
+    return token && token.length > 0
   }
 
   isLoggedOut() {
