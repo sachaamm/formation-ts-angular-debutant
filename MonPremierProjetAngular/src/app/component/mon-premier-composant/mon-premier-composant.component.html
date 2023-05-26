@@ -1,0 +1,23 @@
+<p>mon-premier-composant works! {{ monTitre }} </p>
+
+<div>
+  {{ "Mon booleen est " + (monBooleen ? "Vrai" : "Faux") }}
+</div>
+
+<button (click)="changerEtatBooleen()"> Changer etat de mon booleen </button>
+
+<button (click)="selectionnerParticipantAleatoire()"> Selectionner Participant </button>
+
+<p *ngIf="participant.length > 0">Pariticipant : {{ participant }}</p>
+
+<p *ngFor="let a of agrumes">
+  Agrume : {{ a }}
+</p>
+
+<div *ngIf="estUnAgrume(fruit)">
+  {{ fruit }} est un agrume.
+</div>
+
+<div *ngIf="!estUnAgrume(fruit)">
+  {{ fruit }} n'est pas un agrume.
+</div>

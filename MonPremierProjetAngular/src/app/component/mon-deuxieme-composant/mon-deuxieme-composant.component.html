@@ -1,0 +1,10 @@
+<p>mon-deuxieme-composant works! : {{ monPremierService.test }}</p>
+
+<div *ngFor="let language of languagesInformatiques">
+  <h1> Language : {{ language.name }} </h1>
+  <div *ngFor="let champApplication of language.champsApplication">
+    <p> Champ Application : {{ champApplication }}</p>
+  </div>
+</div>
+
+<button (click)="emettreValeur()">Emettre Valeur</button>

@@ -3,7 +3,7 @@ import { Role } from "../model/role.enum";
 import { User } from "../model/user.model";
 const jwt = require('jsonwebtoken');
 import * as fs from "fs";
-import { LoginResponse } from "../model/login-response.model";
+import { LoginResponseDto } from "../dto/login-response.dto";
 
 export class AuthenticatorService {
 
@@ -27,14 +27,12 @@ export class AuthenticatorService {
             this.onAuthenticationSuccess(res, email);
         } else {
 
-            const loginResponse: LoginResponse = {
+            const loginResponse: LoginResponseDto = {
                 accepted: false,
                 token: '',
                 expirationDate: new Date(),
             }
 
-            // send status 401 Unauthorized
-            // 
             res.status(401).send(loginResponse);
 
         }
@@ -52,7 +50,7 @@ export class AuthenticatorService {
         console.log('Valid mail and password ');
         console.log(jwtBearerToken)
 
-        const loginResponse: LoginResponse = {
+        const loginResponse: LoginResponseDto = {
             accepted: true,
             token: jwtBearerToken,
             expirationDate: new Date(),
