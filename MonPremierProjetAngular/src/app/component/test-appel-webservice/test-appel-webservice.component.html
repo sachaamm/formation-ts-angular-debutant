@@ -1,7 +1,10 @@
 <div *ngIf="authService.isLoggedIn(); else unauthenticated">
   <div class="example-button-row">
     <button mat-button color="primary" (click)="testAppelWebservice()">Test Appel Webservice</button>
-    <p *ngIf="resultatRequete"> Resultat requete : {{ resultatRequete }}</p>
+    <div style="width: 400px; word-break: break-word">
+      <p *ngIf="resultatRequete"> Resultat requete : {{ resultatRequete }}</p>
+    </div>
+
   </div>
 </div>
 

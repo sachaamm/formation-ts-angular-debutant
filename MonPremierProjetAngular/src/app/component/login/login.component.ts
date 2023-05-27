@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LoginResponseDto } from 'src/app/dto/login-response.dto';
 import { LoginForm } from 'src/app/model/login.form';
-import { createPasswordStrengthValidator } from 'src/app/module/mon-premier/validator/strong-password.validator';
 import { AuthenticationService } from 'src/app/service/authentication.service';
 
 @Component({
