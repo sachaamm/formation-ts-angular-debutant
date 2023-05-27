@@ -39,17 +39,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     //   password: 'myPassword1'
     // };
 
-    this.authenticationService.currentUserEmail = this.formGroup.controls.email.value;
-    this.authenticationService.currentUserPassword = this.formGroup.controls.password.value;
-
     this.authenticationService
       .authenticate(
         this.formGroup.controls.email.value,
         this.formGroup.controls.password.value
       ).subscribe((res: LoginResponseDto) => {
         console.log(res)
-        this.authenticationService.token = res.token
-        this.authenticationService.setSession(res)
       });
   }
 }​

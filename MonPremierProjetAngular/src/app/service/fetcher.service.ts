@@ -15,13 +15,12 @@ export class FetcherService {
 
   testAppelWebserviceAvecRefreshToken(): Observable<MyMessageDto> {
     if (!this.authService.tokenValid()) {
-      console.log('refreshing token ...', this.authService.currentUserEmail, this.authService.currentUserPassword);
+      console.log('token plus valide, on doit rafraichir...');
 
       return this.authService
         .authenticate(this.authService.currentUserEmail, this.authService.currentUserPassword)
         .pipe(
           switchMap((res: LoginResponseDto) => {
-
             this.authService.token = res.token
 
             const options = {
@@ -30,7 +29,6 @@ export class FetcherService {
               }
             };
 
-            console.log('login response ', res);
             return this.httpClient.get<MyMessageDto>(URL_API + '/test', options);
           }),
           catchError(error => {
@@ -40,23 +38,6 @@ export class FetcherService {
             );
           })
         );
-      // .subscribe((res: LoginResponseDto) => {
-      //   this.authService.token = res.token
-
-      //   const options = {
-      //     headers: {
-      //       Authorization: 'Bearer ' + this.authService.token
-      //     }
-      //   };
-
-      //   this.httpClient.get<object>(URL_API + '/test', options).subscribe(res => {
-      //     // console.log(res)
-      //   })
-      // });
-
-
-
-
     }
 
     const options = {
