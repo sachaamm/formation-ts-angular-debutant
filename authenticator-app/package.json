@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc && node ./dist/app.js"
+    "start": "node dist/app.js",
+    "prestart": "npm run build",
+    "build": "tsc && node dist/app.js",
+    "ci-build": "npx tsc"
   },
   "keywords": [],
   "author": "",

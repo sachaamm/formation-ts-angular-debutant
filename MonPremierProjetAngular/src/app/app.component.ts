@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.auth.authenticate();
+    // this.auth.authenticate();
   }
 
   allerVersReunion(): void {

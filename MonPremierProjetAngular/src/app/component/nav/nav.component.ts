@@ -26,6 +26,9 @@ export class NavComponent {
     },
     {
       path: 'test-webservice', label: 'Test Webservice'
+    },
+    {
+      path: 'login', label: 'Login'
     }
   ];
 

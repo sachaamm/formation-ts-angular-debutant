@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { URL_API } from 'src/app/app.constants';
 import { AuthenticationService } from 'src/app/service/authentication.service';
+import { FetcherService } from 'src/app/service/fetcher.service';
 
 @Component({
   selector: 'app-test-appel-webservice',
@@ -10,19 +12,15 @@ import { AuthenticationService } from 'src/app/service/authentication.service';
 })
 export class TestAppelWebserviceComponent {
 
-  constructor(private httpClient: HttpClient, private authService: AuthenticationService) {
+  constructor(
+    public authService: AuthenticationService,
+    private fetcherService: FetcherService) {
   }
 
-  testAppelWebservice(): void {
+  testAppelWebservice() {
+    this.fetcherService
+      .testAppelWebserviceAvecRefreshToken().subscribe(res => console.log('my res , ', res));
 
-    const options = {
-      headers: {
-        Authorization: 'Bearer ' + this.authService.token
-      }
-    };
 
-    this.httpClient.get(URL_API + '/test', options).subscribe((res) => {
-      console.log('resultat appel ', res);
-    });
   }
 }

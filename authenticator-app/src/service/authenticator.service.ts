@@ -45,14 +45,14 @@ export class AuthenticatorService {
 
         const jwtBearerToken = jwt.sign({}, RSA_PRIVATE_KEY, {
             algorithm: 'RS256',
-            expiresIn: 120,
+            expiresIn: 5,
             subject: userId
         });
 
         const loginResponse: LoginResponseDto = {
             accepted: true,
             token: jwtBearerToken,
-            expiresIn: 120,
+            expiresIn: 5,
         }
 
         res.send(loginResponse);

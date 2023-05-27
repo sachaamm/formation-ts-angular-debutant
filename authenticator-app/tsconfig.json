@@ -1,16 +1,12 @@
 {
     "compilerOptions": {
-        "target": "es6",
-        "module": "commonjs",
         "outDir": "dist",
         "rootDir": "src",
+        "module": "commonjs",
+        "sourceMap": true,
+        "lib": ["esnext", "dom"],
         "strict": false,
-        "esModuleInterop": true
-    },
-    "include": [
-        "src"
-    ],
-    "exclude": [
-        "node_modules"
-    ]
+        "esModuleInterop": true,
+        "target": "es2017"
+    }
 }

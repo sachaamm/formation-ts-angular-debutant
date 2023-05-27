@@ -1,0 +1,16 @@
+<div [formGroup]="formGroup">
+  <p>
+    <mat-form-field class="example-full-width myinputWithBackgroundColor">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput [formControl]="formGroup.controls.email">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="example-full-width" input-300px>
+      <mat-label>password</mat-label>
+      <input type="password" matInput [formControl]="formGroup.controls.password"> </mat-form-field>
+  </p>
+  <div class="example-button-row"> <button mat-button color="primary" type="submit" [disabled]="!formGroup.valid"
+      (click)="submitForm()">GO</button>
+  </div>
+</div>

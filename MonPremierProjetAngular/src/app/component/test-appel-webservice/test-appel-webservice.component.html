@@ -1,1 +1,1 @@
-<button (click)="testAppelWebservice()"> Test Appel Webservice</button>
+<button *ngIf="authService.isLoggedIn()" (click)="testAppelWebservice()"> Test Appel Webservice</button>

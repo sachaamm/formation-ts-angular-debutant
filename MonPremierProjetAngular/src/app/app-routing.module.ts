@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MonPremierComposantComponent } from './component/mon-premier-composant/mon-premier-composant.component';
 import { TestAppelWebserviceComponent } from './component/test-appel-webservice/test-appel-webservice.component';
+import { LoginComponent } from './component/login/login.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'test-webservice',
     component: TestAppelWebserviceComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: "mon-premier",
