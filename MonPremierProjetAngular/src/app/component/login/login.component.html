@@ -11,6 +11,8 @@
       <input type="password" matInput [formControl]="formGroup.controls.password"> </mat-form-field>
   </p>
   <div class="example-button-row"> <button mat-button color="primary" type="submit" [disabled]="!formGroup.valid"
-      (click)="submitForm()">GO</button>
+      (click)="submitForm()">Connexion</button>
   </div>
 </div>
+
+<p *ngIf="resultatLogin"> {{ resultatLogin }} </p>

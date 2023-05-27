@@ -1,3 +1,3 @@
-export class MyMessageDto {
+export class MyAuthenticatedMessageDto {
   message: string
 }

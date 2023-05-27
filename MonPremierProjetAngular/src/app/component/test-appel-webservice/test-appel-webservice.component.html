@@ -1,1 +1,8 @@
-<button *ngIf="authService.isLoggedIn()" (click)="testAppelWebservice()"> Test Appel Webservice</button>
+<div *ngIf="authService.isLoggedIn(); else unauthenticated">
+  <div class="example-button-row">
+    <button mat-button color="primary" (click)="testAppelWebservice()">Test Appel Webservice</button>
+    <p *ngIf="resultatRequete"> Resultat requete : {{ resultatRequete }}</p>
+  </div>
+</div>
+
+<ng-template #unauthenticated> Veuillez vous <a routerLink="/login">authentifier</a>. </ng-template>

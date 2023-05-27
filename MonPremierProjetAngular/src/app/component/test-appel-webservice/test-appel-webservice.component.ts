@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
-import { URL_API } from 'src/app/app.constants';
+import { MyAuthenticatedMessageDto } from 'src/app/dto/my-message.dto';
+
 import { AuthenticationService } from 'src/app/service/authentication.service';
 import { FetcherService } from 'src/app/service/fetcher.service';
 
@@ -12,15 +11,19 @@ import { FetcherService } from 'src/app/service/fetcher.service';
 })
 export class TestAppelWebserviceComponent {
 
+  resultatRequete: string;
+
   constructor(
     public authService: AuthenticationService,
     private fetcherService: FetcherService) {
   }
 
-  testAppelWebservice() {
+  testAppelWebservice(): void {
     this.fetcherService
-      .testAppelWebserviceAvecRefreshToken().subscribe(res => console.log('my res , ', res));
-
-
+      .testAppelWebserviceAvecRefreshToken()
+      .subscribe((res: MyAuthenticatedMessageDto) => {
+        this.resultatRequete = res.message;
+        console.log('Resultat appel : ', res)
+      });
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LoginResponseDto } from 'src/app/dto/login-response.dto';
 import { LoginForm } from 'src/app/model/login.form';
@@ -12,7 +13,10 @@ import { AuthenticationService } from 'src/app/service/authentication.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  constructor(private authenticationService: AuthenticationService) { }
+
+  resultatLogin: string;
+
+  constructor(private authenticationService: AuthenticationService, private router: Router) { }
   formGroup: FormGroup<LoginForm>;
   formulaireSouscription: Subscription;
   ngOnInit(): void {
@@ -20,7 +24,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       email: new FormControl<string>('', [Validators.required]),
       password: new FormControl<string>('', [
         Validators.required,
-        createPasswordStrengthValidator()
       ])
     });
     this.formulaireSouscription = this.formGroup.valueChanges.subscribe((changes => {
@@ -45,6 +48,11 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.formGroup.controls.password.value
       ).subscribe((res: LoginResponseDto) => {
         console.log(res)
+        if (!res.accepted) {
+          this.resultatLogin = 'Identifiants incorrects.'
+        } else {
+          this.router.navigate(['']);
+        }
       });
   }
 }​

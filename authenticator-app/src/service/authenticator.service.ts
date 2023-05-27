@@ -43,16 +43,21 @@ export class AuthenticatorService {
     onAuthenticationSuccess(res: Response, email: string) {
         const userId = this.findUserIdForEmail(email);
 
+        const dureeDeVieTokenEnSecondes = 10;
+
         const jwtBearerToken = jwt.sign({}, RSA_PRIVATE_KEY, {
             algorithm: 'RS256',
-            expiresIn: 5,
+            expiresIn: dureeDeVieTokenEnSecondes,
             subject: userId
         });
 
         const loginResponse: LoginResponseDto = {
             accepted: true,
             token: jwtBearerToken,
-            expiresIn: 5,
+            expiresIn: dureeDeVieTokenEnSecondes - 5,
+            // J'enleve 5 secondes au delai de vie du token afin d'eviter que le token soit considere encore valide dans le front
+            // alors qu'il ne l'est plus dans le back
+            // le delta de validite front- back sera toujours inferieur a 5 secondes donc on corrige ce probleme de delta.
         }
 
         res.send(loginResponse);

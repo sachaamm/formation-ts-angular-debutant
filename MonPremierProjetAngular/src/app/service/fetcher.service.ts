@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { URL_API } from '../app.constants';
 import { Observable, catchError, map, of, switchMap } from 'rxjs';
 import { LoginResponseDto } from '../dto/login-response.dto';
-import { MyMessageDto } from '../dto/my-message.dto';
+import { MyAuthenticatedMessageDto } from '../dto/my-message.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,10 @@ export class FetcherService {
 
   constructor(private authService: AuthenticationService, private httpClient: HttpClient) { }
 
-  testAppelWebserviceAvecRefreshToken(): Observable<MyMessageDto> {
+  testAppelWebserviceAvecRefreshToken(): Observable<MyAuthenticatedMessageDto> {
+
+    // Si le token n'est plus valide, je refait une authentification
+    // ( Pratique depreciee et invalide concernant JWT mais )
     if (!this.authService.tokenValid()) {
       console.log('token plus valide, on doit rafraichir...');
 
@@ -29,7 +32,7 @@ export class FetcherService {
               }
             };
 
-            return this.httpClient.get<MyMessageDto>(URL_API + '/test', options);
+            return this.httpClient.get<MyAuthenticatedMessageDto>(URL_API + '/test', options);
           }),
           catchError(error => {
             console.error('errorr ', error);
@@ -46,7 +49,7 @@ export class FetcherService {
       }
     };
 
-    return this.httpClient.get<MyMessageDto>(URL_API + '/test', options);
+    return this.httpClient.get<MyAuthenticatedMessageDto>(URL_API + '/test', options);
 
   }
 }
