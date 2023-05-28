@@ -6,7 +6,7 @@ Formation Typescript et Angular Débutant planifiée sur 4 jours
 - 1. **formation** : Projet Angular qui contient les supports de la formation ( Formation Typescript et Formation Angular ) 
 - 2. **helloworld-ts** : Projet de decouverte du language Typescript
 - 3. **MonPremierProjetAngular** : Projet Angular qui aborde les notions vues sur Angular
-- 4. **authenticator-app** : Projet Typescript BackEnd qui simule un BackEnd afin d'explorer les notions d'appel Webservice avec Angular.
+- 4. **authenticator-app** : Projet Typescript BackEnd qui simule un BackEnd afin d'explorer les notions d'appel Webservice avec Angular, et qui contient un systeme d'authentification Jwt rudimentaire
 
 ## Installation et lancement des Projets
 ### Contexte d'Installation
@@ -43,7 +43,7 @@ cd MonPremierProjetAngular && npm install
 ng serve
 ```
 
-### 4. Authenticator 
+### 4. authenticator-app
 - Installation du projet
 ``` bash
 cd authenticator-app
@@ -68,6 +68,7 @@ npm run build
 ```
 
 Lancement du projet en mode debug :
+- Ouvrir le projet "authenticator-app" a part dans VsCode 
 - Dans VsCode, allez dans le menu Debug
 - Lancer la configuration intitulee "Build Project"
 
