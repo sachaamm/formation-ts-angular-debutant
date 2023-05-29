@@ -1,0 +1,33 @@
+<div *ngIf="authService.isLoggedIn(); else unauthenticated">
+
+  <div class="my-spacer">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Appel Webservice</mat-card-title>
+        <mat-card-subtitle>Réaliser un appel Webservice ou le token est rafraîchi quand expiré</mat-card-subtitle>
+      </mat-card-header>
+
+    </mat-card>
+  </div>
+
+  <div class="my-spacer">
+    <mat-card>
+
+      <mat-card-content>
+        <div class="example-button-row">
+          <button mat-button class="my-button" color="primary" (click)="testAppelWebservice()">Test Appel
+            Webservice</button>
+          <div style="width: 400px; word-break: break-word">
+            <p *ngIf="resultatRequete"> Résultat requête : {{ resultatRequete }}</p>
+          </div>
+        </div>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+
+
+
+</div>
+
+<ng-template #unauthenticated> Veuillez vous <a routerLink="/login">authentifier</a>. </ng-template>

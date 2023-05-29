@@ -23,7 +23,7 @@ import { MatTreeModule } from '@angular/material/tree';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 
-import { TestAppelWebserviceComponent } from './component/test-appel-webservice/test-appel-webservice.component';
+import { TestAppelWebserviceComponent } from './module/tp/component/test-appel-webservice/test-appel-webservice.component';
 import { LoginComponent } from './component/login/login.component'
 
 import { UserListComponent } from './module/tp/component/user-list/user-list.component';

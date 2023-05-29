@@ -1,27 +1,48 @@
 <div *ngIf="authService.isLoggedIn(); else unauthenticated">
 
-  <mat-form-field>
-    <mat-label>Filtrer : </mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
-  </mat-form-field>
+  <div class="my-spacer">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>La liste utilisateur</mat-card-title>
+        <mat-card-subtitle>Réaliser un appel Webservice ou le token est rafraîchi quand expiré afin de récupérer la
+          liste des utilisateurs. <br />
+          Une fois reçue, afficher la liste dans un mat-table. On peut filtrer les résultats.<br />
+          Les mails sont affichés avec le pipe Uppercase qui les affiche en majuscule.</mat-card-subtitle>
+      </mat-card-header>
 
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    </mat-card>
+  </div>
 
-    <!-- Email Column -->
-    <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef> Email. </th>
-      <td mat-cell *matCellDef="let element"> {{element.email | uppercase }} </td>
-    </ng-container>
+  <div class="my-spacer">
+    <mat-card>
+      <mat-card-content>
+        <mat-form-field>
+          <mat-label>Filtrer : </mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+        </mat-form-field>
 
-    <!-- Role Column -->
-    <ng-container matColumnDef="role">
-      <th mat-header-cell *matHeaderCellDef> Role </th>
-      <td mat-cell *matCellDef="let element"> {{element.role}} </td>
-    </ng-container>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+          <!-- Email Column -->
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email. </th>
+            <td mat-cell *matCellDef="let element"> {{element.email | uppercase }} </td>
+          </ng-container>
+
+          <!-- Role Column -->
+          <ng-container matColumnDef="role">
+            <th mat-header-cell *matHeaderCellDef> Role </th>
+            <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
 </div>
 
 <ng-template #unauthenticated> Veuillez vous <a routerLink="/login">authentifier</a>. </ng-template>

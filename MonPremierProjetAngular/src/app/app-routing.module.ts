@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TestAppelWebserviceComponent } from './component/test-appel-webservice/test-appel-webservice.component';
+import { TestAppelWebserviceComponent } from './module/tp/component/test-appel-webservice/test-appel-webservice.component';
 import { LoginComponent } from './component/login/login.component';
 import { UserListComponent } from './module/tp/component/user-list/user-list.component';
 import { ParticipantsComponent } from './module/tp/component/participants/participants.component';

@@ -2,13 +2,10 @@
   <mat-card>
     <mat-card-header>
       <mat-card-title>La réunion</mat-card-title>
-      <mat-card-subtitle>Réaliser un algorithme de création de réunion aléatoire (3 à 5 personnes) ou les participants
+      <mat-card-subtitle>Réaliser un algorithme de création de réunion aléatoire (3 à 5 personnes) où les participants
         ne peuvent pas être en double</mat-card-subtitle>
     </mat-card-header>
 
-    <mat-card-content>
-      <button mat-button class="my-button" (click)="creerReunion()"> Créer reunion </button>
-    </mat-card-content>
   </mat-card>
 </div>
 
@@ -16,6 +13,11 @@
 <mat-card>
 
   <mat-card-content>
+
+    <div class="my-spacer">
+      <button mat-button class="my-button" (click)="creerReunion()"> Créer reunion </button>
+    </div>
+
     <h1> Actuellement en Réunion : </h1>
 
     <p *ngFor="let p of monPremierService.personnesDansReunion">
