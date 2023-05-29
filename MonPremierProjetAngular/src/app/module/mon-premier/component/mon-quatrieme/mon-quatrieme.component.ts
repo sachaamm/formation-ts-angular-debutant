@@ -25,7 +25,5 @@ export class MonQuatriemeComponent implements OnInit, OnDestroy {
     this.messageSubscription?.unsubscribe();
   }
 
-  creerReunion(): void {
-    this.monPremierService.definirPersonnesDansSalleDeReunion();
-  }
+
 }
