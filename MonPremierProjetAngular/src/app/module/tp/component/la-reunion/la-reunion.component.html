@@ -1,7 +1,25 @@
-<button (click)="creerReunion()"> Creer reunion </button>
+<div class="my-spacer">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>La réunion</mat-card-title>
+      <mat-card-subtitle>Réaliser un algorithme de création de réunion aléatoire (3 à 5 personnes) ou les participants
+        ne peuvent pas être en double</mat-card-subtitle>
+    </mat-card-header>
 
-<h1> En Reunion ({{ idReunion }}) : </h1>
+    <mat-card-content>
+      <button mat-button class="my-button" (click)="creerReunion()"> Créer reunion </button>
+    </mat-card-content>
+  </mat-card>
+</div>
 
-<p *ngFor="let p of monPremierService.personnesDansReunion">
-  {{ p.name }}
-</p>
+
+<mat-card>
+
+  <mat-card-content>
+    <h1> Actuellement en Réunion : </h1>
+
+    <p *ngFor="let p of monPremierService.personnesDansReunion">
+      {{ p.name }}
+    </p>
+  </mat-card-content>
+</mat-card>

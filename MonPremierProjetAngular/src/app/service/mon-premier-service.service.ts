@@ -13,11 +13,11 @@ export class MonPremierService {
 
   personnes: Person[] = [
     {
-      name: 'Aurelie',
+      name: 'Aurélie',
       age: 30
     },
     {
-      name: 'Benoit',
+      name: 'Benoît',
       age: 42
     },
     {

@@ -2,10 +2,13 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Navigation</mat-toolbar>
-    <li>Apprendre</li>
+
     <mat-nav-list>
-      <div *ngFor="let route of routes">
+      <div *ngFor="let route of nestedDataSource.data">
         <a mat-list-item [routerLink]="route.path">{{ route.label }}</a>
+        <mat-list-item *ngFor="let child of route.children" [routerLink]="child.path">
+          <span mat-line style="font-size: small;">{{ child.label }}</span>
+        </mat-list-item>
       </div>
     </mat-nav-list>
   </mat-sidenav>
@@ -25,7 +28,7 @@
 
       <ng-template #userLoggedIn>
         <span> {{ authService.currentUserEmail }}</span>
-        <button mat-button color="accent" (click)="authService.logout()">Deconnexion</button>
+        <button mat-button color="accent" (click)="authService.logout()">Déconnexion</button>
       </ng-template>
 
 

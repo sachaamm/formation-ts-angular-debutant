@@ -1,0 +1,14 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Ma 1ere variable et ma 1ere fonction</mat-card-title>
+        <mat-card-subtitle>Changer la valeur d'une variable avec l'appel d'une fonction.</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="my-spacer">
+            <p>
+                {{ "Mon booléen est " + (monBooleen ? "Vrai" : "Faux") }}
+            </p>
+            <button mat-button class="my-button" (click)="changerEtatBooleen()"> Changer etat de mon booleen </button>
+        </div>
+    </mat-card-content>
+</mat-card>

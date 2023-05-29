@@ -1,4 +1,5 @@
 export class RouteAffichee {
-  path: string;
+  path?: string;
   label: string;
+  children?: RouteAffichee[];
 }

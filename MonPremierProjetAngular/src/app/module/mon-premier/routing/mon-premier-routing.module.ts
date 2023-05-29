@@ -1,26 +1,36 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MonCinquiemeComponent } from 'src/app/module/mon-premier/component/mon-cinquieme/mon-cinquieme.component';
-import { MonQuatriemeComponent } from 'src/app/module/mon-premier/component/mon-quatrieme/mon-quatrieme.component';
-import { MonSixiemeComponent } from '../component/mon-sixieme/mon-sixieme.component';
+import { ExampleServiceComponent } from '../component/example-service/example-service.component';
+import { ExempleFormulaireComponent } from '../component/exemple-formulaire/exemple-formulaire.component';
+import { ExempleRoutingParamComponent } from '../component/exemple-routing-param/exemple-routing-param.component';
+import { ExempleTableauxComponent } from '../component/exemple-tableaux/exemple-tableaux.component';
+import { ExempleFonctionComponent } from '../component/exemple-fonction/exemple-fonction.component';
 
 const routes: Routes = [
   {
-    path: 'quatrieme',
-    component: MonQuatriemeComponent
+    path: 'exemple-fonction',
+    component: ExempleFonctionComponent
   },
   {
-    path: 'cinquieme/:id',
-    component: MonCinquiemeComponent
+    path: 'exemple-tableaux',
+    component: ExempleTableauxComponent
   },
   {
-    path: 'sixieme',
-    component: MonSixiemeComponent
+    path: 'exemple-router-param/:id',
+    component: ExempleRoutingParamComponent
   },
-  // {
-  //   path: '**',
-  //   redirectTo: 'quatrieme', pathMatch: 'full'
-  // },
+  {
+    path: 'exemple-service',
+    component: ExampleServiceComponent
+  },
+  {
+    path: 'exemple-formulaire',
+    component: ExempleFormulaireComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'exemple-fonction', pathMatch: 'full'
+  },
 ];
 
 @NgModule({

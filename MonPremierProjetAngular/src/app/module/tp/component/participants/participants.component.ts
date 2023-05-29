@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class ParticipantsComponent {
 
-  participants: string[] = ['Massamba', 'Simon', 'Adam', 'Makram', 'Julien', 'Andre', 'Sylvain', 'Julen']
+  participants: string[] = ['Massamba', 'Simon', 'Adam', 'Makrem', 'Julien', 'André', 'Sylvain', 'Julen']
 
   participant = ""
 

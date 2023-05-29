@@ -1,3 +1,44 @@
-<button (click)="selectionnerParticipantAleatoire()"> Selectionner Participant </button>
+<div class="my-spacer">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Les participants</mat-card-title>
+            <mat-card-subtitle>Réaliser un algorithme de selection aléatoire de participant dans une liste et vider la
+                liste.</mat-card-subtitle>
+        </mat-card-header>
 
-<p *ngIf="participant.length > 0">Pariticipant : {{ participant }}</p>
+        <mat-card-content>
+
+
+
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<div class="my-spacer">
+    <mat-card>
+        <mat-card-content>
+            <p>
+                <button mat-button class="my-button" (click)="selectionnerParticipantAleatoire()">
+                    Sélectionner
+                    Participant
+                </button>
+            </p>
+
+            <div class="my-spacer">
+                <p *ngIf="participant.length > 0"> Participant : <b> {{ participant }} </b></p>
+            </div>
+
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<div class="my-spacer">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Ils ont participés : </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p *ngFor="let p of participantsAyantParticipe">{{ participants[p] }}</p>
+        </mat-card-content>
+    </mat-card>
+</div>

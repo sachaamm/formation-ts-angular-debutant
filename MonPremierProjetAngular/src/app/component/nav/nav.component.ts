@@ -1,9 +1,57 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { RouteAffichee } from 'src/app/model/route.model';
 import { AuthenticationService } from 'src/app/service/authentication.service';
+import { MatTreeNestedDataSource } from '@angular/material/tree';
+import { RouteAffichee } from 'src/app/model/route.model';
+
+const TREE_DATA: RouteAffichee[] = [
+  {
+    label: 'Connexion',
+    path: 'login'
+  },
+  {
+    label: 'Apprendre',
+    children: [
+      {
+        path: 'apprendre/exemple-fonction', label: 'Fonction'
+      },
+      {
+        path: 'apprendre/exemple-tableaux', label: 'Tableaux'
+      },
+      {
+        path: 'apprendre/exemple-router-param/123', label: 'Paramètre de Route'
+      },
+      {
+        path: 'apprendre/exemple-service', label: 'Services'
+      },
+      {
+        path: 'apprendre/exemple-formulaire', label: 'Formulaire'
+      },
+
+    ],
+
+  },
+  {
+    label: 'TP',
+    children: [
+      {
+        path: 'tp/participants', label: 'Participants'
+      },
+      {
+        path: 'tp/la-reunion', label: 'La Réunion'
+      },
+      {
+        path: 'tp/test-webservice', label: 'Appel Webservice'
+      },
+      {
+        path: 'tp/user-list', label: 'La liste utilisateurs'
+      },
+    ]
+  }
+
+];
 
 @Component({
   selector: 'app-nav',
@@ -12,36 +60,8 @@ import { AuthenticationService } from 'src/app/service/authentication.service';
 })
 export class NavComponent implements OnInit {
 
-  routes: RouteAffichee[] = [
-    {
-      path: 'login', label: 'Login'
-    },
-    {
-      path: 'premier', label: 'Fonction'
-    },
-    {
-      path: 'participants', label: 'Participants'
-    },
-    {
-      path: 'agrumes', label: 'Tableaux'
-    },
-    {
-      path: '', label: 'Services'
-    },
-    {
-      path: 'mon-premier/quatrieme', label: '4eme'
-    },
-    {
-      path: 'mon-premier/cinquieme/123', label: 'Routing'
-    },
-    {
-      path: 'mon-premier/sixieme', label: 'Formulaire'
-    },
-    {
-      path: 'test-webservice', label: 'Test Webservice'
-    },
-
-  ];
+  nestedDataSource: MatTreeNestedDataSource<RouteAffichee>;
+  dataChange: BehaviorSubject<RouteAffichee[]> = new BehaviorSubject<RouteAffichee[]>([]);
 
   private breakpointObserver = inject(BreakpointObserver);
 
@@ -52,23 +72,12 @@ export class NavComponent implements OnInit {
     );
 
   constructor(public authService: AuthenticationService) {
-
   }
 
   ngOnInit(): void {
-    this.authService.isLoggedInBehaviorSubject.subscribe((isLoggedIn: boolean) => {
-      // On ajoute la route 'user-list' quand l'utilisateur est authentifie
-      if (isLoggedIn && !this.routes.map(r => r.path).includes('user-list')) {
-        this.routes.push({
-          path: 'user-list', label: 'Liste Utilisateur'
-        });
-      }
-
-      // On supprime la route 'user-list' quand l'utilisateur n'est plus authentifie
-      if (!isLoggedIn && this.routes.map(r => r.path).includes('user-list')) {
-        let indexOf = this.routes.findIndex(r => r.path == 'user-list');
-        this.routes.splice(indexOf, 1)
-      }
-    });
+    this.nestedDataSource = new MatTreeNestedDataSource();
+    this.dataChange.subscribe(data => this.nestedDataSource.data = data);
+    this.dataChange.next(TREE_DATA);
   }
+
 }

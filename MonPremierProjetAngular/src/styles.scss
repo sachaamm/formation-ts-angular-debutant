@@ -1,19 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 $inputBackgroundColor: rgb(237, 232, 218);
 $inputSize: 300px;
+
 .input-300px {
   width: $inputSize;
 }
 
-.explication-div{
+.explication-div {
   background-color: aliceblue;
   font-weight: bold;
 }
 
-.my-spacer{
+.my-spacer {
   margin-bottom: 10px;
+}
+
+.my-button {
+  background-color: rgb(63, 81, 181) !important;
+  color: white !important;
+}
+
+.my-button :hover {
+  transition: 0.5s;
+  opacity: 0.5;
 }
