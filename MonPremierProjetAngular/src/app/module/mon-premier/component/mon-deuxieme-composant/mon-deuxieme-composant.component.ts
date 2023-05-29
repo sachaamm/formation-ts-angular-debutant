@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { LanguageInformatique } from '../../model/languageInformatique.model';
+import { LanguageInformatique } from '../../../../model/languageInformatique.model';
 import { MonPremierService } from 'src/app/service/mon-premier-service.service';
 
 @Component({

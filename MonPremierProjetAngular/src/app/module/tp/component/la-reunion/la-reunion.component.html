@@ -1,0 +1,7 @@
+<button (click)="creerReunion()"> Creer reunion </button>
+
+<h1> En Reunion ({{ idReunion }}) : </h1>
+
+<p *ngFor="let p of monPremierService.personnesDansReunion">
+  {{ p.name }}
+</p>
