@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MonDeuxiemeComposantComponent } from './component/mon-deuxieme-composant/mon-deuxieme-composant.component';
-import { MonPremierComposantComponent } from './component/mon-premier-composant/mon-premier-composant.component';
-import { MonTroisiemeComposantComponent } from './component/mon-troisieme-composant/mon-troisieme-composant.component';
+import { MonDeuxiemeComposantComponent } from './module/mon-premier/component/mon-deuxieme-composant/mon-deuxieme-composant.component';
+import { MonPremierComposantComponent } from './module/mon-premier/component/mon-premier-composant/mon-premier-composant.component';
+import { MonTroisiemeComposantComponent } from './module/mon-premier/component/mon-troisieme-composant/mon-troisieme-composant.component';
 import { MonPremierModule } from './module/mon-premier/mon-premier.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -17,9 +17,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+
 import { TestAppelWebserviceComponent } from './component/test-appel-webservice/test-appel-webservice.component';
 import { LoginComponent } from './component/login/login.component'
 import { MatInputModule } from '@angular/material/input';
+import { UserListComponent } from './module/mon-premier/component/user-list/user-list.component';
+import { MatTableModule } from '@angular/material/table';
+import { AgrumesComponent } from './module/mon-premier/component/agrumes/agrumes.component';
+import { LaReunionComponent } from './module/tp/component/la-reunion/la-reunion.component';
+import { ParticipantsComponent } from './module/tp/component/participants/participants.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +36,11 @@ import { MatInputModule } from '@angular/material/input';
     MonTroisiemeComposantComponent,
     NavComponent,
     TestAppelWebserviceComponent,
-    LoginComponent
+    LoginComponent,
+    UserListComponent,
+    AgrumesComponent,
+    ParticipantsComponent,
+    LaReunionComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +54,9 @@ import { MatInputModule } from '@angular/material/input';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

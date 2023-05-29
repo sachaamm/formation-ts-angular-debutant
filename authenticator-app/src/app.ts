@@ -17,7 +17,7 @@ app.use(cors({
     methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']
 }));
 
-app.use("/test", jwt(
+app.use("/authenticated", jwt(
     {
         secret: publicKey,
         algorithms: ["RS256"],
@@ -29,7 +29,10 @@ app.use((err, req, res, next) => {
         res.status(401).json({ "error": err.name + ": " + err.message })
     }
 })
-require('./controllers/authentication.controller')(app);
+
+// Import des controllers
+require('./controllers/login.controller')(app);
+require('./controllers/authenticated-only.controller')(app);
 
 app.listen(APPLICATION_PORT, () => {
     console.log('listening on port ' + APPLICATION_PORT);
